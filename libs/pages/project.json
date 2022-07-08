@@ -1,0 +1,14 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/pages/src",
+  "prefix": "pms",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/pages/**/*.ts", "libs/pages/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}

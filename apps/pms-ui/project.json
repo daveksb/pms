@@ -13,9 +13,17 @@
         "polyfills": "apps/pms-ui/src/polyfills.ts",
         "tsConfig": "apps/pms-ui/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/pms-ui/src/favicon.ico", "apps/pms-ui/src/assets"],
-        "styles": ["apps/pms-ui/src/styles.scss"],
-        "scripts": []
+        "assets": [
+          "apps/pms-ui/src/favicon.ico",
+          "apps/pms-ui/src/assets",
+          "apps/pms-ui/src/assets/images"
+        ],
+        "styles": [
+          "apps/pms-ui/src/styles.scss",
+          "node_modules/bootstrap/scss/bootstrap.scss",
+          "node_modules/bootstrap-icons/font/bootstrap-icons.css"
+        ],
+        "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
       },
       "configurations": {
         "production": {
