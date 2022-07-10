@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
@@ -37,20 +37,24 @@ export class MonitorComponent implements OnInit {
       .getServerSentEvent('http://localhost:3333/api/parking-info/streaming')
       .pipe(untilDestroyed(this))
       .subscribe((res) => {
-        console.log('res = ', res?.eventType);
         if (res['eventType'] === 'Enter') {
           this.dataSource.data = [...this.dataSource.data, res];
-        } else {
+        } else if (res['eventType'] === 'Exit') {
           this.openDialog();
         }
       });
   }
 
-  openDialog() {
-    this.dialog.open(BillingComponent, {
+  openDialog(): void {
+    const dialog = this.dialog.open(BillingComponent, {
+      width: '450px',
       data: {
         ticketId: '123',
       },
+    });
+
+    dialog.afterClosed().subscribe(() => {
+      console.log('The dialog was closed');
     });
   }
 

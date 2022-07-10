@@ -14,8 +14,8 @@ export class EntranceComponent {
   constructor(private service: AppService, private router: Router) {}
 
   addNewVehicle() {
-    this.service.addVehicle().subscribe((res) => {
-      console.log('add vehicle result = ', res);
+    this.service.addVehicle().subscribe(() => {
+      //console.log('add vehicle result = ', res);
     });
   }
 

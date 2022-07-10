@@ -10,7 +10,9 @@ export class ParkingInfoController {
     private service: ParkingInfoService,
     private eventEmitter: EventEmitter2
   ) {
-    this.vehicleStatus.subscribe((res) => console.log('subject = ', res));
+    this.vehicleStatus.subscribe((res) =>
+      console.log('vehicle status = ', res)
+    );
   }
 
   vehicleStatus = new Subject<MessageEvent>();
@@ -55,13 +57,13 @@ export class ParkingInfoController {
 
   @OnEvent('vehicle.exit', { async: true })
   handleExit(payload: any) {
-    console.log('remove vehicle payload = ', payload);
+    //console.log('remove vehicle =', payload);
     this.vehicleStatus.next(payload);
   }
 
   @Sse('streaming')
   sse(): Observable<MessageEvent> {
-    console.log('inside sse = ');
+    //console.log('inside sse = ');
     return this.vehicleStatus.asObservable();
   }
 }
