@@ -1,6 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
-import { ParkingInfo } from '@pms/shared';
-import { Observable } from 'rxjs';
+import { ParkingInfo } from './interface';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 
@@ -14,8 +14,14 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root',
 })
-export class MonitorService {
-  constructor(private http: HttpClient, private _zone: NgZone) {}
+export class AppService {
+  _carExitSubj = new BehaviorSubject({});
+
+  constructor(private http: HttpClient, private _zone: NgZone) {
+    this._carExitSubj.subscribe((res) => {
+      console.log('service subj =', res);
+    });
+  }
 
   getData(): Observable<ParkingInfo[]> {
     return this.http.get<ParkingInfo[]>(
@@ -24,14 +30,6 @@ export class MonitorService {
   }
 
   addVehicle(): Observable<string> {
-    return this.http.post<string>(
-      'http://localhost:3333/api/parking-info',
-      {},
-      httpOptions
-    );
-  }
-
-  removeVehicle(): Observable<string> {
     return this.http.post<string>(
       'http://localhost:3333/api/parking-info',
       {},

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MonitorService } from '../monitor/monitor.service';
+import { AppService } from '@pms/shared';
 
 @Component({
   selector: 'pms-gate',
@@ -10,7 +10,7 @@ import { MonitorService } from '../monitor/monitor.service';
   styleUrls: ['./entrance.component.scss'],
 })
 export class EntranceComponent {
-  constructor(private service: MonitorService) {}
+  constructor(private service: AppService) {}
 
   addNewVehicle() {
     this.service.addVehicle().subscribe((res) => {

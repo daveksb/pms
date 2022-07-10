@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MonitorService } from '../monitor/monitor.service';
+import { AppService } from '@pms/shared';
 
 @Component({
   selector: 'pms-exit',
@@ -10,11 +10,11 @@ import { MonitorService } from '../monitor/monitor.service';
   styleUrls: ['./exit.component.css'],
 })
 export class ExitComponent {
-  constructor(private service: MonitorService) {}
+  constructor(private service: AppService) {}
 
-  addNewVehicle() {
-    this.service.addVehicle().subscribe((res) => {
-      console.log('add vehicle result = ', res);
-    });
+  removeVehicle() {
+    const data = Math.floor(Math.random() * 999);
+
+    this.service._carExitSubj.next(data);
   }
 }
