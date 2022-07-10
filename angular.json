@@ -4,6 +4,7 @@
   "projects": {
     "dialog": "libs/dialog",
     "pages": "libs/pages",
+    "parking-info": "libs/parking-info",
     "pms-api": "apps/pms-api",
     "pms-ui": "apps/pms-ui",
     "shared": "libs/shared"
