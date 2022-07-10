@@ -68,7 +68,10 @@
           "browserTarget": "pms-ui:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "apps/pms-ui/proxy.conf.json"
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -90,7 +93,6 @@
         "passWithNoTests": true
       }
     },
-
     "deploy": {
       "executor": "@netlify-builder/deploy:deploy",
       "options": {
