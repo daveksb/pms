@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { GateComponent, LoginComponent, MonitorComponent } from '@pms/pages';
+import {
+  EntranceComponent,
+  ExitComponent,
+  LoginComponent,
+  MonitorComponent,
+} from '@pms/pages';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'monitor', component: MonitorComponent },
-  { path: 'gate', component: GateComponent },
+  { path: 'entrance', component: EntranceComponent },
+  { path: 'exit', component: ExitComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   /*   {
     path: 'register',

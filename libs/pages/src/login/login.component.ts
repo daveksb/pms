@@ -16,7 +16,11 @@ export class LoginComponent {
     this.router.navigate(['monitor']);
   }
 
-  goToGate() {
-    this.router.navigate(['gate']);
+  entrance() {
+    this.router.navigate(['entrance']);
+  }
+
+  exit() {
+    this.router.navigate(['exit']);
   }
 }

@@ -17,12 +17,9 @@ const httpOptions = {
 export class MonitorService {
   constructor(private http: HttpClient, private _zone: NgZone) {}
 
-  //eventSource = new EventSource('http://localhost:3333/api/parking-info/sse');
-
   getData(): Observable<ParkingInfo[]> {
     return this.http.get<ParkingInfo[]>(
-      'http://localhost:3333/api/parking-info',
-      {}
+      'http://localhost:3333/api/parking-info'
     );
   }
 
@@ -34,13 +31,23 @@ export class MonitorService {
     );
   }
 
+  removeVehicle(): Observable<string> {
+    return this.http.post<string>(
+      'http://localhost:3333/api/parking-info',
+      {},
+      httpOptions
+    );
+  }
+
   getServerSentEvent(url: string): Observable<MessageEvent> {
     return new Observable((observer: any) => {
-      const eventSource = this.getEventSource(url);
+      const eventSource = new EventSource(url);
 
-      eventSource.onmessage = (event: MessageEvent<ParkingInfo>) => {
+      eventSource.onmessage = (event: MessageEvent<string>) => {
+        const res = JSON.parse(event.data);
+
         this._zone.run(() => {
-          observer.next(event.data);
+          observer.next(res);
         });
       };
 
@@ -50,9 +57,5 @@ export class MonitorService {
         });
       };
     });
-  }
-
-  getEventSource(url: string): EventSource {
-    return new EventSource(url);
   }
 }

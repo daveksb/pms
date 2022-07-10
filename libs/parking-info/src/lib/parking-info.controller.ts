@@ -1,11 +1,19 @@
 import { Controller, Get, Sse, MessageEvent, Post } from '@nestjs/common';
+import { EventEmitter2, OnEvent } from '@nestjs/event-emitter';
 import { ParkingInfo } from '@pms/shared';
-import { interval, map, Observable, take } from 'rxjs';
+import { Observable, of, Subject, take } from 'rxjs';
 import { ParkingInfoService } from './parking-info.service';
 
 @Controller('parking-info')
 export class ParkingInfoController {
-  constructor(private service: ParkingInfoService) {}
+  constructor(
+    private service: ParkingInfoService,
+    private eventEmitter: EventEmitter2
+  ) {
+    this.events.subscribe((res) => console.log('subject = ', res));
+  }
+
+  events = new Subject<MessageEvent>();
 
   @Get()
   findAll(): ParkingInfo[] {
@@ -14,14 +22,28 @@ export class ParkingInfoController {
 
   @Post()
   create(): string {
+    this.eventEmitter.emit('vehicle.added', {
+      data: {
+        position: Math.floor(Math.random() * 999),
+        licensePlate: `${Math.floor(Math.random() * 9)} กษ ${Math.floor(
+          Math.random() * 9999
+        )}`,
+        arrive: `12.${Math.floor(Math.random() * 59)}`,
+        vehicleType: 'รถยนต์นั่ง',
+      },
+    });
     return 'This action adds a new cat';
   }
 
-  @Sse('sse')
+  @OnEvent('vehicle.added', { async: true })
+  handleEvent(payload: any) {
+    //console.log('add vehicle payload = ', payload);
+    this.events.next(payload);
+  }
+
+  @Sse('streaming')
   sse(): Observable<MessageEvent> {
-    //return interval(1000).pipe(map((_) => ({ data: { hello: 'world' } })));
-    return interval(10000).pipe(
-      map((_) => ({ data: this.service.getParkingInfo() }))
-    );
+    console.log('inside sse = ');
+    return this.events.asObservable();
   }
 }

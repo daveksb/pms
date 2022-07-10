@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MonitorService } from '../monitor/monitor.service';
 
 @Component({
-  selector: 'pms-gate',
+  selector: 'pms-exit',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './gate.component.html',
-  styleUrls: ['./gate.component.css'],
+  templateUrl: './exit.component.html',
+  styleUrls: ['./exit.component.css'],
 })
-export class GateComponent {
+export class ExitComponent {
   constructor(private service: MonitorService) {}
 
   addNewVehicle() {
