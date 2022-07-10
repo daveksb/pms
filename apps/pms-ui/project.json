@@ -89,6 +89,15 @@
         "jestConfig": "apps/pms-ui/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+
+    "deploy": {
+      "executor": "@netlify-builder/deploy:deploy",
+      "options": {
+        "outputPath": "dist/apps/pms-ui",
+        "siteId": "e695ce62-ab88-4639-9e70-123368956d32",
+        "noBuild": true
+      }
     }
   },
   "tags": []
