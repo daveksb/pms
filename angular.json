@@ -2,6 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "dialog": "libs/dialog",
     "pages": "libs/pages",
     "pms-ui": "apps/pms-ui"
   }

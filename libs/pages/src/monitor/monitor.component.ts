@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'pms-login',
+  selector: 'pms-monitor',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  templateUrl: './monitor.component.html',
+  styleUrls: ['./monitor.component.css'],
 })
-export class LoginComponent {
+export class MonitorComponent {
   constructor(private router: Router) {}
 
-  login() {
-    this.router.navigate(['monitor']);
+  logout() {
+    this.router.navigate(['login']);
   }
 }

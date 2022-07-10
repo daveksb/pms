@@ -1,0 +1,14 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/dialog/src",
+  "prefix": "pms",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/dialog/**/*.ts", "libs/dialog/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}

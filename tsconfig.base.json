@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@pms/dialog": ["libs/dialog/src/index.ts"],
       "@pms/pages": ["libs/pages/src/index.ts"]
     }
   },
