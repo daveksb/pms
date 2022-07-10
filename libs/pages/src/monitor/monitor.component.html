@@ -1,38 +1,34 @@
 <div class="p-5">
-  <div role="button" class="d-flex justify-content-end" (click)="logout()">
+  <div role="button" class="d-flex justify-content-end mb-2" (click)="logout()">
     ออกจากระบบ
   </div>
-  <table class="table caption-top">
-    <caption>
-      รายการรถเข้าจอด
-    </caption>
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">หมายเลขทะเบียน</th>
-        <th scope="col">เวลาเข้า</th>
-        <th scope="col">ประเภทรถ</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>4 กษ 2541</td>
-        <td>12.05</td>
-        <td>รถยนต์นั่ง</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>6 ขจ 4079</td>
-        <td>12.32</td>
-        <td>รถกระบะ</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>1 พศ 9601</td>
-        <td>14.52</td>
-        <td>รถยนต์นั่ง</td>
-      </tr>
-    </tbody>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="licensePlate">
+      <th mat-header-cell *matHeaderCellDef>หมายเลขทะเบียน</th>
+      <td mat-cell *matCellDef="let element">{{ element.licensePlate }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="arrive">
+      <th mat-header-cell *matHeaderCellDef>เวลาเข้า</th>
+      <td mat-cell *matCellDef="let element">{{ element.arrive }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="vehicleType">
+      <th mat-header-cell *matHeaderCellDef>ประเภทรถ</th>
+      <td mat-cell *matCellDef="let element">{{ element.vehicleType }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </div>

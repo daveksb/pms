@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@pms/dialog": ["libs/dialog/src/index.ts"],
-      "@pms/pages": ["libs/pages/src/index.ts"]
+      "@pms/pages": ["libs/pages/src/index.ts"],
+      "@pms/shared": ["libs/shared/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
