@@ -24,7 +24,11 @@ export class ParkingInfoService {
     },
   ];
 
-  getParkingInfo(): ParkingInfo[] {
+  getParkingInfos(): ParkingInfo[] {
     return this.data;
+  }
+
+  getParkingInfo(): ParkingInfo {
+    return this.data[0];
   }
 }

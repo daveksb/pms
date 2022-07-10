@@ -15,4 +15,8 @@ export class LoginComponent {
   login() {
     this.router.navigate(['monitor']);
   }
+
+  goToGate() {
+    this.router.navigate(['gate']);
+  }
 }
