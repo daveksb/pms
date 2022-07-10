@@ -1,0 +1,22 @@
+<div class="container-fluid bg-danger bg-opacity-25" style="height: 100vh">
+  <div class="d-flex justify-content-end">
+    <button class="btn btn-secondary mt-2" (click)="logout()">
+      ออกจากระบบ
+    </button>
+  </div>
+  <div
+    class="mt-5 d-flex flex-column justify-content-center align-items-center"
+  >
+    <p class="fs-2">จำลองเหตุการณ์</p>
+    <p class="fs-2">เมื่อรถออกจากลานจอด</p>
+    <button
+      type="button"
+      class="btn btn-lg btn-danger mt-5"
+      style="height: 8rem; width: 15rem"
+      (click)="removeVehicle()"
+    >
+      <i class="bi bi-truck me-2 fs-1"></i>
+      <div>Vehicle Left</div>
+    </button>
+  </div>
+</div>

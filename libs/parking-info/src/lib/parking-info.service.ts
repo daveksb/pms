@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@nestjs/common';
 import { ParkingInfo } from '@pms/shared';
-import { Observable, of } from 'rxjs';
 
-const ELEMENT_DATA: ParkingInfo[] = [
+const data: ParkingInfo[] = [
   {
     position: 1,
     licensePlate: '4 กษ 2541',
@@ -22,14 +21,13 @@ const ELEMENT_DATA: ParkingInfo[] = [
     vehicleType: 'รถกระบะ',
   },
 ];
+@Injectable()
+export class ParkingInfoService {
+  getParkingInfos(): ParkingInfo[] {
+    return data;
+  }
 
-@Injectable({
-  providedIn: 'root',
-})
-export class MonitorService {
-  constructor() {}
-
-  getData(): Observable<ParkingInfo[]> {
-    return of(ELEMENT_DATA);
+  getParkingInfo(): ParkingInfo {
+    return data[0];
   }
 }

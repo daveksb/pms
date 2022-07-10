@@ -15,4 +15,12 @@ export class LoginComponent {
   login() {
     this.router.navigate(['monitor']);
   }
+
+  entrance() {
+    this.router.navigate(['entrance']);
+  }
+
+  exit() {
+    this.router.navigate(['exit']);
+  }
 }
