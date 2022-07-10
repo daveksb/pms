@@ -17,11 +17,7 @@ const httpOptions = {
 export class AppService {
   _carExitSubj = new BehaviorSubject({});
 
-  constructor(private http: HttpClient, private _zone: NgZone) {
-    this._carExitSubj.subscribe((res) => {
-      console.log('service subj =', res);
-    });
-  }
+  constructor(private http: HttpClient, private _zone: NgZone) {}
 
   getData(): Observable<ParkingInfo[]> {
     return this.http.get<ParkingInfo[]>(
@@ -31,13 +27,21 @@ export class AppService {
 
   addVehicle(): Observable<string> {
     return this.http.post<string>(
-      'http://localhost:3333/api/parking-info',
+      'http://localhost:3333/api/parking-info/add',
       {},
       httpOptions
     );
   }
 
-  getServerSentEvent(url: string): Observable<MessageEvent> {
+  removeVehicle(): Observable<string> {
+    return this.http.post<string>(
+      'http://localhost:3333/api/parking-info/remove',
+      {},
+      httpOptions
+    );
+  }
+
+  getServerSentEvent(url: string): Observable<any> {
     return new Observable((observer: any) => {
       const eventSource = new EventSource(url);
 

@@ -29,8 +29,7 @@ export class MonitorComponent implements OnInit {
   constructor(
     private router: Router,
     private service: AppService,
-    public dialog: MatDialog,
-    private ref: ChangeDetectorRef
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -38,14 +37,13 @@ export class MonitorComponent implements OnInit {
       .getServerSentEvent('http://localhost:3333/api/parking-info/streaming')
       .pipe(untilDestroyed(this))
       .subscribe((res) => {
-        console.log('res = ', res);
-        this.dataSource.data = [...this.dataSource.data, res];
+        console.log('res = ', res?.eventType);
+        if (res['eventType'] === 'Enter') {
+          this.dataSource.data = [...this.dataSource.data, res];
+        } else {
+          this.openDialog();
+        }
       });
-
-    this.service._carExitSubj.pipe(untilDestroyed(this)).subscribe((res) => {
-      console.log('moniter subj = ', res);
-      //this.ref.markForCheck();
-    });
   }
 
   openDialog() {
