@@ -5,6 +5,7 @@ import {
   ExitComponent,
   LoginComponent,
   MonitorComponent,
+  SimulatorComponent,
 } from '@pms/pages';
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'monitor', component: MonitorComponent },
   { path: 'entrance', component: EntranceComponent },
   { path: 'exit', component: ExitComponent },
+  { path: 'simulator', component: SimulatorComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   /*   {
     path: 'register',

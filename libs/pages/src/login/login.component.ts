@@ -23,4 +23,8 @@ export class LoginComponent {
   exit() {
     this.router.navigate(['exit']);
   }
+
+  simulator() {
+    this.router.navigate(['simulator']);
+  }
 }

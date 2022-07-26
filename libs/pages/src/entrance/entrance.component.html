@@ -1,38 +1,19 @@
-<!-- <div class="container-fluid bg-primary bg-opacity-25" style="height: 100vh">
+<div class="container-fluid bg-primary bg-opacity-25" style="height: 100vh">
   <div class="d-flex justify-content-end">
     <button class="btn btn-secondary mt-2" (click)="logout()">
       ออกจากระบบ
     </button>
   </div>
-  <div
-    class="mt-5 d-flex flex-column justify-content-center align-items-center"
-  >
-    <p class="fs-2 text-primary">จำลองเหตุการณ์</p>
-    <p class="fs-2 text-primary">เมื่อรถเข้าสู่ลานจอด</p>
-    <button
-      type="button"
-      class="btn btn-lg btn-primary mt-5"
-      style="height: 8rem; width: 15rem"
-      (click)="addNewVehicle()"
-    >
-      <i class="bi bi-truck me-2 fs-1"></i>
-      <div>Vehicle Entered</div>
-    </button>
-  </div>
-</div>
- -->
-
-<div class="page-container">
-  <div class="image-col">
-    <img class="image" style="height: 400px" [src]="'./assets/car/1-f.jpg'" />
-    <div class="row pt-1">
-      <img
-        class="col image"
-        style="height: 200px"
-        [src]="'./assets/car/1-b.jpg'"
-      />
-      <div class="col bg-white me-2"></div>
+  <div class="page-container">
+    <div class="image-col">
+      <img class="image" style="height: 400px" [src]="frontImage" />
+      <div class="row pt-1">
+        <img class="col image" style="height: 200px" [src]="bottomImage" />
+        <div class="col bg-white me-2"></div>
+      </div>
+    </div>
+    <div class="detail-column">
+      <pms-vehicle-info></pms-vehicle-info>
     </div>
   </div>
-  <div class="detail-column"><pms-vehicle-info></pms-vehicle-info></div>
 </div>

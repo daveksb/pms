@@ -63,23 +63,28 @@
                   เข้าสู่ระบบ
                 </button>
               </div>
-              <div class="form-group">
+
+              <div class="form-group d-flex">
                 <button
                   type="submit"
                   class="form-control btn btn-primary rounded submit px-3"
                   (click)="entrance()"
                 >
-                  Gate Entrance
+                  Entrance
                 </button>
-              </div>
-
-              <div class="form-group">
                 <button
                   type="submit"
-                  class="form-control btn btn-primary rounded submit px-3"
+                  class="form-control btn btn-primary rounded submit px-3 ms-2"
                   (click)="exit()"
                 >
-                  Gate Exit
+                  Exit
+                </button>
+                <button
+                  type="submit"
+                  class="form-control btn btn-primary rounded submit px-3 ms-2"
+                  (click)="simulator()"
+                >
+                  Simulator
                 </button>
               </div>
               <!--               <div class="form-group d-md-flex">
