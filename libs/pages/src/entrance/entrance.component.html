@@ -1,4 +1,4 @@
-<div class="container-fluid bg-primary bg-opacity-25" style="height: 100vh">
+<!-- <div class="container-fluid bg-primary bg-opacity-25" style="height: 100vh">
   <div class="d-flex justify-content-end">
     <button class="btn btn-secondary mt-2" (click)="logout()">
       ออกจากระบบ
@@ -19,4 +19,20 @@
       <div>Vehicle Entered</div>
     </button>
   </div>
+</div>
+ -->
+
+<div class="page-container">
+  <div class="image-col">
+    <img class="image" style="height: 400px" [src]="'./assets/car/1-f.jpg'" />
+    <div class="row pt-1">
+      <img
+        class="col image"
+        style="height: 200px"
+        [src]="'./assets/car/1-b.jpg'"
+      />
+      <div class="col bg-white me-2"></div>
+    </div>
+  </div>
+  <div class="detail-column"><pms-vehicle-info></pms-vehicle-info></div>
 </div>

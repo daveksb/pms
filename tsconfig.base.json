@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@pms/dialog": ["libs/dialog/src/index.ts"],
+      "@pms/form": ["libs/form/src/index.ts"],
       "@pms/pages": ["libs/pages/src/index.ts"],
       "@pms/parking-info": ["libs/parking-info/src/index.ts"],
       "@pms/shared": ["libs/shared/src/index.ts"]

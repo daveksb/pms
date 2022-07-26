@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "dialog": "libs/dialog",
+    "form": "libs/form",
     "pages": "libs/pages",
     "parking-info": "libs/parking-info",
     "pms-api": "apps/pms-api",

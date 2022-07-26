@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppService } from '@pms/shared';
 import { Router } from '@angular/router';
+import { VehicleInfoComponent } from '@pms/form';
 
 @Component({
   selector: 'pms-gate',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, VehicleInfoComponent],
   templateUrl: './entrance.component.html',
   styleUrls: ['./entrance.component.scss'],
 })
